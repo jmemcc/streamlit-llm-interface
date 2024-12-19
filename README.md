@@ -49,10 +49,10 @@ Set up the app manually or using Docker.
 
 1. Build image:
     ```bash
-    docker build -t ollama_streamlit_chat .
+    docker build -t streamlit_ollama_chat .
     ```
 
 2. Run container:
     ```bash
-    docker run -p 8501:8501 ollama_streamlit_chat
+    docker run -p 8501:8501 streamlit_ollama_chat
     ```
