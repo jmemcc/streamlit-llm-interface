@@ -1,58 +1,76 @@
-# Streamlit Ollama Chat Example
+# Streamlit LLM Interface
 
-by [@jmemcc](https://github.com/jmemcc)
+Made by [@jmemcc](https://github.com/jmemcc)
 
-A starter template for building chat interfaces with Ollama in Streamlit, created as an example for those wanting to build local LLM chat applications. 
+A chat interface for Ollama/ChatGPT built in Streamlit, created as an example for those wanting to build local LLM chat applications.
 
-**Note**: This is an example repository to develop from, and is not suited for production use.
+## Prerequisites
 
-### Key Features
-
-- **Model Selection**: Choose between Ollama and OpenAI models via the settings sidebar.
-- **Role Settings**: Set the assistant's behaviour using presets or custom instructions.
-- **Parameters**: Adjust Temperature and Max Tokens to control responses.
-
-## Usage
-
-Visit the app at http://0.0.0.0:8501.
-
-Select an LLM provider and model in the sidebar, then you can interact with the model. Roles can be selected for more tailored model responses - you can add your own in the `data/prompts.toml` file.
-
+- [Ollama](https://ollama.com/) installed with at least one model, like [llama3.2](https://ollama.com/library/llama3.2) (if installing manually)
+- For OpenAI models: API key from their [developer dashboard](https://platform.openai.com/api-keys)
+- Python 3.10 or higher (if installing manually)
+- Docker (if using containerised deployment)
 
 ## Installation
 
-You need install [Ollama](https://ollama.com/) and at least one model (e.g. [llama3.2](https://ollama.com/library/llama3.2)). 
+### Option 1: Manual
 
-For OpenAI models, obtain an API key from their [developer dashboard](https://platform.openai.com/api-keys) and add it to `.streamlit/secrets.toml`.
+Below are steps to setup using [pyenv](https://github.com/pyenv/pyenv), but an environment with venv is also fine.
 
-Set up the app manually or using Docker.
+1. Create a Python environment (Python 3.10):
 
-### Manual Setup 
-
-1. Create a Python 3.10 environment:
     ```bash
-    pyenv virtualenv 3.10 my_env 
-    pyenv local my_env
+    pyenv virtualenv 3.10 python3.10.14 
+    pyenv local python3.10.14 
     ```
 
 2. Install requirements:
+
     ```bash
     pip install -r requirements.txt
     ```
 
 3. Launch the app:
+
     ```bash
-    streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    streamlit run app.py
     ```
 
-### Docker Setup
+**Note**: If you are already using port `8501`, run the `streamlit` command above with  `--server.port=XXXX` on your port of choice.
 
-1. Build image:
-    ```bash
-    docker build -t streamlit_ollama_chat .
-    ```
+### Option 2: Docker
 
-2. Run container:
-    ```bash
-    docker run -p 8501:8501 streamlit_ollama_chat
-    ```
+In the directory, build and run with the compose file:
+
+```bash
+docker compose up -d
+```
+
+or build and run with the Dockerfile:
+
+```bash
+docker build -t streamlit_llm
+docker run streamlit_llm
+```
+
+**Note**: If you already are using port `8501`, you need to change the port in the Docker files to use another port.
+
+## Usage
+
+Select an LLM provider and model in the sidebar, then you can interact with the model.
+
+Roles can be selected for more tailored responses - you can add your own in the `data/prompts.toml` file.
+
+## Contributing
+
+Contributions are welcome. Please feel free to submit a pull request. For major changes, please open an issue first to discuss the change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.

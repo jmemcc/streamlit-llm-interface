@@ -1,0 +1,3 @@
+.python-version
+.ruff_cache
+.streamlit/secrets.toml

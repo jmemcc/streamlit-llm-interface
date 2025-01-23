@@ -1,3 +1,4 @@
 ollama==0.4.3
 openai==1.57.0
 streamlit==1.40.2
+watchdog==6.0.0
