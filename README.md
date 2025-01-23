@@ -1,8 +1,10 @@
 # Streamlit LLM Interface
 
+A chat interface for Ollama/ChatGPT built in Streamlit, created as an example for those wanting to build local LLM chat applications.
+
 Made by [@jmemcc](https://github.com/jmemcc)
 
-A chat interface for Ollama/ChatGPT built in Streamlit, created as an example for those wanting to build local LLM chat applications.
+![An example of a query in the Streamlit app using llama3.2](streamlit-llm.gif)
 
 ## Prerequisites
 
